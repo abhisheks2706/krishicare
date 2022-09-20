@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134941797833",
+    "project_id": "krishicare",
+    "storage_bucket": "krishicare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134941797833:android:00e5a8e972c36456c10c18",
+        "android_client_info": {
+          "package_name": "com.example.krishicare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134941797833-immloov37uubgua7eu4olglv17q9msrc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKhMwJNktvjqSSF_raoXXM7fdObLLDQ6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134941797833-immloov37uubgua7eu4olglv17q9msrc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
