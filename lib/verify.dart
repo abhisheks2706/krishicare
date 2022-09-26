@@ -114,7 +114,7 @@ class _MyVerifyState extends State<MyVerify> {
 
                         // Sign the user in (or link) with the credential
                         await auth.signInWithCredential(credential);
-                        Navigator.pushNamedAndRemoveUntil(context, "Home", (route) => false);
+                        Navigator.pushNamedAndRemoveUntil(context, "Home", (route) => true);
                       }
                       catch(e){
                         print(e.toString()+" "+code+"wrong otp"+Myphone.verify);

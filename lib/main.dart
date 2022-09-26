@@ -1,10 +1,7 @@
 
-
-
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:krishicare/Home.dart';
+import 'package:krishicare/nav_pages/Home.dart';
 import 'package:krishicare/verify.dart';
 import 'package:krishicare/phone.dart';
 
@@ -14,6 +11,9 @@ void main() async{
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'phone',
-    routes: {'phone': (context) => Myphone(), 'otp': (context) => MyVerify(), 'Home': (context)=>Myhome()},
+    routes: {
+      'phone': (context) => Myphone(),
+      'otp': (context) => MyVerify(),
+      'Home': (context)=>Myhome()},
   ));
 }

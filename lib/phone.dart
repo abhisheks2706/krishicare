@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class Myphone extends StatefulWidget {
    const Myphone({Key? key}) : super(key: key);
 
@@ -17,7 +18,7 @@ class _MyphoneState extends State<Myphone> {
    var phone ="";
 
   @override
-  void initState() {
+  void initState(){
     // TODO: implement initState
     countrycode.text="+91";
     super.initState();
@@ -105,18 +106,18 @@ class _MyphoneState extends State<Myphone> {
                    width: double.infinity,
                    child:  ElevatedButton(onPressed: () async  {
                      await FirebaseAuth.instance.verifyPhoneNumber(
-                       phoneNumber: '+${countrycode.text+phone}',
+                       phoneNumber:'+${countrycode.text+phone}',
                        verificationCompleted: (PhoneAuthCredential credential) {},
                        verificationFailed: (FirebaseAuthException e) {},
                        codeSent: (String verificationId, int? resendToken) {
                          Myphone.verify=verificationId;
-
                          Navigator.pushNamed(context, "otp");
+
                        },
                        codeAutoRetrievalTimeout: (String verificationId) {},
                      );
                      //Navigator.pushNamed(context, "otp");
-                   }, child: Text('Send the code'),style: ElevatedButton.styleFrom(
+                    }, child: Text('Send the code'),style: ElevatedButton.styleFrom(
                        primary: Colors.green.shade600,shape: RoundedRectangleBorder(
                        borderRadius: BorderRadius.circular(10)
                    )
