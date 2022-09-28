@@ -104,8 +104,8 @@ class _MyphoneState extends State<Myphone> {
                  SizedBox(
                    height: 45,
                    width: double.infinity,
-                   child:  ElevatedButton(onPressed: () async  {
-                     await FirebaseAuth.instance.verifyPhoneNumber(
+                   child:  ElevatedButton(onPressed: ()  async {
+                      await FirebaseAuth.instance.verifyPhoneNumber(
                        phoneNumber:'+${countrycode.text+phone}',
                        verificationCompleted: (PhoneAuthCredential credential) {},
                        verificationFailed: (FirebaseAuthException e) {},
@@ -121,7 +121,7 @@ class _MyphoneState extends State<Myphone> {
                        primary: Colors.green.shade600,shape: RoundedRectangleBorder(
                        borderRadius: BorderRadius.circular(10)
                    )
-                   ),),
+                   ),)                 ,
                  )
                 ],
               ),
