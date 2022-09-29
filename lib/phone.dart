@@ -117,7 +117,8 @@ class _MyphoneState extends State<Myphone> {
                        codeAutoRetrievalTimeout: (String verificationId) {},
                      );
                      //Navigator.pushNamed(context, "otp");
-                    }, child: Text('Send the code'),style: ElevatedButton.styleFrom(
+                    },
+                     child: Text('Send the code'),style: ElevatedButton.styleFrom(
                        primary: Colors.green.shade600,shape: RoundedRectangleBorder(
                        borderRadius: BorderRadius.circular(10)
                    )

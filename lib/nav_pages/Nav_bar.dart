@@ -41,23 +41,24 @@ class _NavBarState extends State<NavBar> {
             ),
           ),
           ListTile(
-           leading: Icon(Icons.favorite ),
-            title: Text('Favorite'),
+           leading: Icon(Icons.account_box ),
+            title: Text('User profile'),
             onTap: ()=>null,
           ),
           ListTile(
-            leading: Icon(Icons.people),
-            title: Text('Connections'),
+            leading: Icon(Icons.shopping_cart),
+            title: Text('My orders'),
+            onTap: ()=>null,
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.calculate ),
+            title: Text('Fertilizer Calculator'),
             onTap: ()=>null,
           ),
           ListTile(
-            leading: Icon(Icons.share ),
-            title: Text('Share'),
-            onTap: ()=>null,
-          ),
-          ListTile(
-            leading: Icon(Icons.notifications ),
-            title: Text('request'),
+            leading: Icon(Icons.language ),
+            title: Text('Change Language'),
             onTap: ()=>null,
           ),
           ListTile(
@@ -65,18 +66,24 @@ class _NavBarState extends State<NavBar> {
             title: Text('settings'),
             onTap: ()=>null,
           ),
+          ListTile(
+            leading: Icon(Icons.person_add ),
+            title: Text('Refer a Farmer'),
+            onTap: ()=>null,
+          ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.description ),
-            title: Text('Policies'),
+            leading: Icon(Icons.warning ),
+            title: Text('Help Guide'),
             onTap: ()=>null,
           ),
           Divider(),
           ListTile(
             leading: Icon(Icons.exit_to_app ),
-            title: Text('Exit'),
+            title: Text('Sign Out'),
             onTap: ()=>null,
           )
+
         ],
       ),
 
