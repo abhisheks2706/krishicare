@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:krishicare/nav_pages/Nav_bar.dart';
 
+import '../pages/home_page.dart';
+
 class Myhome extends StatefulWidget {
   const Myhome({Key? key}) : super(key: key);
   @override
@@ -10,58 +12,68 @@ class Myhome extends StatefulWidget {
 }
 
 class _MyhomeState extends State<Myhome> {
-
-  int _currentindex =0;
+  int _currentindex = 0;
+  int pageIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: NavBar(),
+      drawer: const NavBar(),
       appBar: AppBar(
           backgroundColor: Colors.green.shade900,
-          title: Text("Krishi Care"),
+          title: const Text("Krishi Care"),
           elevation: 0),
+      body: getBody(),
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white10,
         currentIndex: _currentindex,
-          type: BottomNavigationBarType.fixed,
-          iconSize: 30,
-          selectedItemColor:  Colors.green.shade800,
-          selectedFontSize: 17,
-          unselectedFontSize: 13 ,
-
-
-
-          items: [
-        new BottomNavigationBarItem(
-          backgroundColor: Colors.grey,
-          icon: new Icon(Icons.house),
-          label: "Home",
-        ),
-        new BottomNavigationBarItem(
-          icon: new Icon(Icons.car_rental),
-          label: "Search",
-        ),
-        new BottomNavigationBarItem(
-          icon: new Icon(Icons.people),
-          label: "Connections",
-        ),
-        new BottomNavigationBarItem(
-          icon: new Icon(Icons.account_box),
-          label: "Profile",
-        ),
-
-
-      ],
-        onTap: (index){
+        type: BottomNavigationBarType.fixed,
+        iconSize: 30,
+        selectedItemColor: Colors.green.shade800,
+        selectedFontSize: 17,
+        unselectedFontSize: 13,
+        items: const [
+          BottomNavigationBarItem(
+            backgroundColor: Colors.grey,
+            icon: Icon(Icons.house),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.car_rental),
+            label: "Search",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: "Connections",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_box),
+            label: "Profile",
+          ),
+        ],
+        onTap: (index) {
           setState(() {
-            _currentindex=index;
+            _currentindex = index;
+            pageIndex = index;
           });
         },
       ),
 
       //nav bar
+    );
+  }
+
+  Widget getBody() {
+    List<Widget> pages = [
+      HomePage(),
+      //MyCoursesPage(),
+      //ExplorePage(),
+      //AccountPage(),
+    ];
+    return IndexedStack(
+      index: pageIndex,
+      children: pages,
     );
   }
 }

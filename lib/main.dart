@@ -1,4 +1,3 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +11,17 @@ import 'package:krishicare/nav_pages/myaccount.dart';
 import 'package:krishicare/nav_pages/Nav_bar.dart';
 import 'package:krishicare/nav_pages/news.dart';
 
-void main() async{
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //await//
+  //Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'phone',
     routes: {
       'phone': (context) => Myphone(),
       'otp': (context) => MyVerify(),
-      'Home': (context)=>Myhome()},
+      'Home': (context) => Myhome()
+    },
   ));
 }
