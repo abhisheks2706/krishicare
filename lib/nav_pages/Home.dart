@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:krishicare/nav_pages/Nav_bar.dart';
+import 'package:krishicare/pages/community_page.dart';
 
 import '../pages/home_page.dart';
 
@@ -40,12 +40,12 @@ class _MyhomeState extends State<Myhome> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.car_rental),
-            label: "Search",
+            icon: Icon(Icons.add_comment_rounded),
+            label: "Community",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: "Connections",
+            icon: Icon(Icons.shopping_cart),
+            label: "KrishiStore",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box),
@@ -66,7 +66,8 @@ class _MyhomeState extends State<Myhome> {
 
   Widget getBody() {
     List<Widget> pages = [
-      HomePage(),
+      const HomePage(),
+      const CommunityPage()
       //MyCoursesPage(),
       //ExplorePage(),
       //AccountPage(),

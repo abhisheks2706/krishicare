@@ -1,23 +1,27 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import '/data/post_json.dart';
-import '/data/user_json.dart';
+import 'package:flutter/services.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter/cupertino.dart';
+import '/datas/post_json.dart';
+import '/datas/user_json.dart';
 import '/theme/colors.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CommunityPage extends StatefulWidget {
+  const CommunityPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _CommunityPage createState() => _CommunityPage();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CommunityPage extends State<CommunityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar:
-          PreferredSize(child: getAppBar(), preferredSize: Size.fromHeight(60)),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(60), child: getAppBar()),
       body: getBody(),
     );
   }
@@ -31,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Krishi Care Community Handle ",
               style: TextStyle(
                   fontSize: 18, color: black, fontWeight: FontWeight.bold),
@@ -39,7 +43,7 @@ class _HomePageState extends State<HomePage> {
             IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  Feather.bell,
+                  Icons.audio_file,
                   color: black,
                   size: 25,
                 ))
@@ -56,17 +60,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Feed",
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 // story profile
@@ -77,13 +81,13 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         width: 58,
                         height: 58,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             gradient: LinearGradient(colors: [
                               Color(0xFFFFE0DF),
                               Color(0xFFE1F6F4)
                             ])),
-                        child: Center(
+                        child: const Center(
                           child: Icon(
                             Icons.add,
                             color: black,
@@ -91,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 30,
                       ),
                       Row(
@@ -116,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Column(
@@ -134,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                                   color: grey.withOpacity(0.4),
                                   spreadRadius: 2,
                                   blurRadius: 15,
-                                  offset: Offset(0, 1))
+                                  offset: const Offset(0, 1))
                             ],
                             image: DecorationImage(
                                 image:
@@ -169,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                                         backgroundImage: NetworkImage(
                                             postsList[index]['img']),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 12,
                                       ),
                                       Column(
@@ -178,10 +182,10 @@ class _HomePageState extends State<HomePage> {
                                         children: [
                                           Text(
                                             postsList[index]['name'],
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontSize: 15, color: white),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 3,
                                           ),
                                           Text(
@@ -194,11 +198,11 @@ class _HomePageState extends State<HomePage> {
                                       )
                                     ],
                                   ),
-                                  Icon(
-                                    Entypo.dots_three_vertical,
-                                    color: white,
-                                    size: 20,
-                                  )
+                                  const Icon(Icons.add_home_sharp
+                                      // Entypo.dots_three_vertical,
+                                      //color: white,
+                                      // size: 20,
+                                      )
                                 ],
                               ),
                               Row(
@@ -210,20 +214,20 @@ class _HomePageState extends State<HomePage> {
                                     height: 27,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(27),
-                                        color:
-                                            Color(0xFFE5E5E5).withOpacity(0.5)),
+                                        color: const Color(0xFFE5E5E5)
+                                            .withOpacity(0.5)),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Icon(
-                                          Feather.heart,
-                                          color: white,
-                                          size: 14,
-                                        ),
+                                        const Icon(Icons.add_home
+                                            //Feather.heart,
+                                            //color: white,
+                                            //size: 14,
+                                            ),
                                         Text(
                                           postsList[index]['like'],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 13, color: white),
                                         )
                                       ],
@@ -234,16 +238,16 @@ class _HomePageState extends State<HomePage> {
                                     height: 27,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(27),
-                                        color:
-                                            Color(0xFFE5E5E5).withOpacity(0.5)),
+                                        color: const Color(0xFFE5E5E5)
+                                            .withOpacity(0.5)),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Icon(
-                                          MaterialIcons.chat_bubble_outline,
-                                          color: white,
-                                          size: 14,
+                                          Icons.ac_unit,
+                                          //color: white,
+                                          //size: 14,
                                         ),
                                         Text(
                                           postsList[index]['comment'],
@@ -258,20 +262,20 @@ class _HomePageState extends State<HomePage> {
                                     height: 27,
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(27),
-                                        color:
-                                            Color(0xFFE5E5E5).withOpacity(0.5)),
+                                        color: const Color(0xFFE5E5E5)
+                                            .withOpacity(0.5)),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.share,
                                           color: white,
                                           size: 14,
                                         ),
                                         Text(
                                           postsList[index]['share'],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 13, color: white),
                                         )
                                       ],

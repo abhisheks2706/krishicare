@@ -1,4 +1,4 @@
-import 'package:e_learnig_clone/theme/colors.dart';
+import '/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomCourseCardExpand extends StatefulWidget {
@@ -30,7 +30,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
     return Container(
       width: size.width * .6,
       alignment: Alignment.topCenter,
-      padding: EdgeInsets.all(7.0),
+      padding: const EdgeInsets.all(7.0),
       decoration: BoxDecoration(
         color: textWhite,
         borderRadius: BorderRadius.circular(17.0),
@@ -38,7 +38,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
           BoxShadow(
             color: textBlack.withOpacity(0.1),
             blurRadius: 10.0,
-            offset: Offset(0, 5),
+            offset: const Offset(0, 5),
           )
         ],
       ),
@@ -70,7 +70,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
                       borderRadius: BorderRadius.circular(100.0)),
                   child: Text(
                     '${widget.videoAmount} Videos',
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: secondary,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w700),
@@ -79,7 +79,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
               ),
             ],
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           Container(
             padding: const EdgeInsets.only(
               left: 7.0,
@@ -89,14 +89,14 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
               widget.title,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 color: secondary,
                 fontSize: 17.0,
                 fontWeight: FontWeight.w700,
               ),
             ),
           ),
-          SizedBox(height: 15.0),
+          const SizedBox(height: 15.0),
           Padding(
             padding: const EdgeInsets.only(
               left: 7.0,
@@ -105,7 +105,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
+                SizedBox(
                   height: 30.0,
                   width: 30.0,
                   child: ClipRRect(
@@ -116,14 +116,14 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Flexible(
                   child: Container(
                     width: size.width,
                     alignment: Alignment.centerLeft,
                     child: Text(
                       widget.userName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: secondary,
                         fontSize: 13.0,
                       ),
@@ -132,7 +132,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
                 ),
                 Text(
                   '\$${widget.price}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: primary,
                     fontSize: 15.0,
                     fontWeight: FontWeight.w700,
@@ -141,7 +141,7 @@ class _CustomCourseCardExpandState extends State<CustomCourseCardExpand> {
               ],
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
         ],
       ),
     );
@@ -192,7 +192,7 @@ class _CustomCourseCardShrinkState extends State<CustomCourseCardShrink> {
               ),
             ),
           ),
-          SizedBox(width: 15.0),
+          const SizedBox(width: 15.0),
           Flexible(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -202,7 +202,7 @@ class _CustomCourseCardShrinkState extends State<CustomCourseCardShrink> {
                   widget.title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14.0,
                     color: secondary,
                     fontWeight: FontWeight.w700,
@@ -213,14 +213,14 @@ class _CustomCourseCardShrinkState extends State<CustomCourseCardShrink> {
                   children: [
                     Text(
                       'Instructor: ' + widget.userName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12.0,
                         color: grey,
                       ),
                     ),
                     Text(
                       '\$' + widget.price,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: primary,
                         fontWeight: FontWeight.w700,

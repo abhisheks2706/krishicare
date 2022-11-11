@@ -107,7 +107,7 @@ class _MyVerifyState extends State<MyVerify> {
                 child: ElevatedButton(
                     onPressed: () async {
                       Navigator.pushNamedAndRemoveUntil(
-                          context, "Home", (route) => true);
+                          context, "Onboard", (route) => true);
                       //try {
                       //  // Create a PhoneAuthCredential with the code
                       //  PhoneAuthCredential credential =

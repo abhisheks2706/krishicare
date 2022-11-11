@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:e_learnig_clone/theme/colors.dart';
-import 'package:e_learnig_clone/theme/padding.dart';
+import '/theme/colors.dart';
+import '/theme/padding.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {

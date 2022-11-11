@@ -1,6 +1,6 @@
-import 'package:e_learnig_clone/theme/colors.dart';
-import 'package:e_learnig_clone/theme/padding.dart';
-import 'package:e_learnig_clone/utils/contant.dart';
+import '/theme/colors.dart';
+import '/theme/padding.dart';
+import '/utils/contant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

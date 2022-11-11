@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,17 +13,20 @@ class _NavBarState extends State<NavBar> {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
-        padding:EdgeInsets.zero,
+        padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
-
-            accountName: Text('Abhishek patel',),
-            accountEmail : Text('abhiseks2706@gmail.com'),
+            accountName: Text(
+              'Abhishek patel',
+            ),
+            accountEmail: Text('abhiseks2706@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                child: Image.asset('assets/farmer.png',
+                child: Image.asset(
+                  'assets/farmer.png',
                   alignment: Alignment.center,
-                  width:90,height: 90,
+                  width: 90,
+                  height: 90,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -33,60 +34,57 @@ class _NavBarState extends State<NavBar> {
             decoration: BoxDecoration(
               color: Colors.blueGrey,
               image: DecorationImage(
-                image: AssetImage(
-                  'assets/navbackground.jpg',
-                ),
-                fit: BoxFit.cover
-              ),
+                  image: AssetImage(
+                    'assets/navbackground.jpg',
+                  ),
+                  fit: BoxFit.cover),
             ),
           ),
           ListTile(
-           leading: Icon(Icons.account_box ),
+            leading: Icon(Icons.account_box),
             title: Text('User profile'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           ListTile(
             leading: Icon(Icons.shopping_cart),
             title: Text('My orders'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.calculate ),
+            leading: Icon(Icons.calculate),
             title: Text('Fertilizer Calculator'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.language ),
+            leading: Icon(Icons.language),
             title: Text('Change Language'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.settings ),
+            leading: Icon(Icons.settings),
             title: Text('settings'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           ListTile(
-            leading: Icon(Icons.person_add ),
+            leading: Icon(Icons.person_add),
             title: Text('Refer a Farmer'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.warning ),
+            leading: Icon(Icons.warning),
             title: Text('Help Guide'),
-            onTap: ()=>null,
+            onTap: () => null,
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.exit_to_app ),
+            leading: Icon(Icons.exit_to_app),
             title: Text('Sign Out'),
-            onTap: ()=>null,
+            onTap: () => null,
           )
-
         ],
       ),
-
     );
   }
 }

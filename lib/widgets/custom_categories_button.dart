@@ -1,4 +1,4 @@
-import 'package:e_learnig_clone/theme/colors.dart';
+import '/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomCategoriesButton extends StatelessWidget {
@@ -29,13 +29,13 @@ class CustomCategoriesButton extends StatelessWidget {
                 color: primary.withOpacity(0.5),
                 spreadRadius: 0.0,
                 blurRadius: 6.0,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
               )
             ],
           ),
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: textWhite,
               fontSize: 15.0,
               fontWeight: FontWeight.w700,

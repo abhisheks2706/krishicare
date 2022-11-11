@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class _MyphoneState extends State<Myphone> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            margin: EdgeInsets.only(left: 25, right: 25),
+            margin: const EdgeInsets.only(left: 25, right: 25),
             alignment: Alignment.center,
             child: SingleChildScrollView(
               child: Column(
@@ -37,24 +37,24 @@ class _MyphoneState extends State<Myphone> {
                     width: 200,
                     height: 200,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
-                  Text(
+                  const Text(
                     'Phone verification ',
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     'We need to register your phone before getting started',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Container(
@@ -64,7 +64,7 @@ class _MyphoneState extends State<Myphone> {
                         borderRadius: BorderRadius.circular(10)),
                     child: Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         SizedBox(
@@ -75,17 +75,17 @@ class _MyphoneState extends State<Myphone> {
                             keyboardType: TextInputType.phone,
                             controller: countrycode,
                             decoration:
-                                InputDecoration(border: InputBorder.none),
+                                const InputDecoration(border: InputBorder.none),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        Text(
+                        const Text(
                           "|",
                           style: TextStyle(fontSize: 33, color: Colors.grey),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Expanded(
@@ -94,15 +94,15 @@ class _MyphoneState extends State<Myphone> {
                             onChanged: (value) {
                               phone = value;
                             },
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                                 border: InputBorder.none, hintText: "Phone"),
-                            style: TextStyle(fontSize: 19),
+                            style: const TextStyle(fontSize: 19),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   SizedBox(
@@ -123,11 +123,11 @@ class _MyphoneState extends State<Myphone> {
                         // );
                         Navigator.pushNamed(context, "otp");
                       },
-                      child: Text('Send the code'),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green.shade600,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
+                      child: const Text('Send the code'),
                     ),
                   )
                 ],

@@ -1,4 +1,4 @@
-import 'package:e_learnig_clone/theme/colors.dart';
+import '/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeading extends StatelessWidget {

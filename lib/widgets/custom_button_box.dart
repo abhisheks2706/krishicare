@@ -1,5 +1,7 @@
-import 'package:e_learnig_clone/theme/colors.dart';
+// import 'package:e_learnig_clone/theme/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../theme/colors.dart';
 
 class CustomButtonBox extends StatelessWidget {
   const CustomButtonBox({
@@ -30,7 +32,7 @@ class CustomButtonBox extends StatelessWidget {
       ),
       child: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14.0,
           fontWeight: FontWeight.w700,
           color: textWhite,

@@ -1,5 +1,5 @@
-import 'package:e_learnig_clone/datas/category_json.dart';
-import 'package:e_learnig_clone/theme/colors.dart';
+import '/datas/category_json.dart';
+import '/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -16,12 +16,8 @@ class CustomCategoryCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(HomePageCategoryJson.length, (index) {
-          
-         
           return GestureDetector(
-            onTap: () {
-            
-            },
+            onTap: () {},
             child: Container(
               height: size.width * .25,
               width: size.width * .25,
