@@ -1,26 +1,23 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 //0verification pages
-import 'package:krishicare/verify.dart';
-import 'package:krishicare/phone.dart';
+import 'package:krishicare/features/auth/verify.dart';
+import 'package:krishicare/features/auth/phone.dart';
 
 //home pages
-import 'package:krishicare/nav_pages/Home.dart';
-import 'package:krishicare/nav_pages/myaccount.dart';
-import 'package:krishicare/nav_pages/Nav_bar.dart';
-import 'package:krishicare/nav_pages/news.dart';
+import 'package:krishicare/features/nav_pages/home.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: 'phone',
     routes: {
-      'phone': (context) => Myphone(),
-      'otp': (context) => MyVerify(),
-      'Home': (context)=>Myhome()},
+      'phone': (context) => const Myphone(),
+      'otp': (context) => const MyVerify(),
+      'home': (context) => const Myhome()
+    },
   ));
 }
