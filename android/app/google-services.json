@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "134941797833-bkda3g6d3njhfsb3m6dud7aqa5cuuhn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.krishicare",
+            "certificate_hash": "ee4f0dde5fe66b27b1caf85f0e920d78fcdc5e65"
+          }
+        },
+        {
+          "client_id": "134941797833-qudemffslusndgr5opsv5tu5c16fk23u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.krishicare",
+            "certificate_hash": "7fb586d0bf183c98795c87d75b0b1e18e6806dc1"
+          }
+        },
+        {
           "client_id": "134941797833-immloov37uubgua7eu4olglv17q9msrc.apps.googleusercontent.com",
           "client_type": 3
         }

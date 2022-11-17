@@ -42,7 +42,7 @@ class _CommunityPage extends State<CommunityPage> {
             ),
             IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.audio_file,
                   color: black,
                   size: 25,
@@ -244,14 +244,14 @@ class _CommunityPage extends State<CommunityPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Icon(
+                                        const Icon(
                                           Icons.ac_unit,
                                           //color: white,
                                           //size: 14,
                                         ),
                                         Text(
                                           postsList[index]['comment'],
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 13, color: white),
                                         )
                                       ],

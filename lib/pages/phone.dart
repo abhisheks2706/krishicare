@@ -1,4 +1,5 @@
 //import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -110,18 +111,18 @@ class _MyphoneState extends State<Myphone> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () async {
-                        //  await FirebaseAuth.instance.verifyPhoneNumber(
-                        //   phoneNumber:'+${countrycode.text+phone}',
-                        //   verificationCompleted: (PhoneAuthCredential credential) {},
-                        //   verificationFailed: (FirebaseAuthException e) {},
-                        //   codeSent: (String verificationId, int? resendToken) {
-                        //   Myphone.verify=verificationId;
-                        //     Navigator.pushNamed(context, "otp");
-//
-                        //   },
-                        //   codeAutoRetrievalTimeout: (String verificationId) {},
-                        // );
-                        Navigator.pushNamed(context, "otp");
+                        await FirebaseAuth.instance.verifyPhoneNumber(
+                          phoneNumber: '+${countrycode.text + phone}',
+                          verificationCompleted:
+                              (PhoneAuthCredential credential) {},
+                          verificationFailed: (FirebaseAuthException e) {},
+                          codeSent: (String verificationId, int? resendToken) {
+                            Myphone.verify = verificationId;
+                            Navigator.pushNamed(context, "otp");
+                          },
+                          codeAutoRetrievalTimeout: (String verificationId) {},
+                        );
+                        //Navigator.pushNamed(context, "otp");
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green.shade600,

@@ -1,5 +1,7 @@
 //import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:krishicare/pages/phone.dart';
 // import 'package:krishicare/phone.dart';
 import 'package:pinput/pinput.dart';
 
@@ -11,7 +13,7 @@ class MyVerify extends StatefulWidget {
 }
 
 class _MyVerifyState extends State<MyVerify> {
-  //final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -91,10 +93,9 @@ class _MyVerifyState extends State<MyVerify> {
                 onChanged: (value) {
                   code = value;
                 },
-                // defaultPinTheme: defaultPinTheme,
-                // focusedPinTheme: focusedPinTheme,
-                // submittedPinTheme: submittedPinTheme,
-
+                defaultPinTheme: defaultPinTheme,
+                focusedPinTheme: focusedPinTheme,
+                submittedPinTheme: submittedPinTheme,
                 showCursor: true,
                 onCompleted: (pin) => print(pin),
               ),
@@ -108,23 +109,23 @@ class _MyVerifyState extends State<MyVerify> {
                     onPressed: () async {
                       Navigator.pushNamedAndRemoveUntil(
                           context, "Onboard", (route) => true);
-                      //try {
-                      //  // Create a PhoneAuthCredential with the code
-                      //  PhoneAuthCredential credential =
-                      //      PhoneAuthProvider.credential(
-                      //          verificationId: Myphone.verify, smsCode: code);
-//
-                      //  // Sign the user in (or link) with the credential
-                      //  await auth.signInWithCredential(credential);
-                      //  Navigator.pushNamedAndRemoveUntil(
-                      //      context, "Home", (route) => true);
-                      //} catch (e) {
-                      //  print(e.toString() +
-                      //      " " +
-                      //      code +
-                      //      "wrong otp" +
-                      //      Myphone.verify);
-                      //}
+                      try {
+                        // Create a PhoneAuthCredential with the code
+                        PhoneAuthCredential credential =
+                            PhoneAuthProvider.credential(
+                                verificationId: Myphone.verify, smsCode: code);
+
+                        // Sign the user in (or link) with the credential
+                        await auth.signInWithCredential(credential);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, "Home", (route) => true);
+                      } catch (e) {
+                        print(e.toString() +
+                            " " +
+                            code +
+                            "wrong otp" +
+                            Myphone.verify);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green.shade600,
