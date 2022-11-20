@@ -13,11 +13,12 @@ void main() async {
   await Firebase.initializeApp();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'phone',
+    initialRoute: 'home',
     routes: {
       'phone': (context) => const Myphone(),
       'otp': (context) => const MyVerify(),
       'home': (context) => const Myhome()
     },
   ));
+  //I love you baby and i just
 }
