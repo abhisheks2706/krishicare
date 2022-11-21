@@ -1,24 +1,38 @@
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:krishicare/pages/LacaleString.dart';
+import 'package:krishicare/pages/form_screen.dart';
+import 'package:krishicare/pages/onboarding_screen.dart';
 
-//0verification pages
-import 'package:krishicare/features/auth/verify.dart';
-import 'package:krishicare/features/auth/phone.dart';
+//verification pages
+import 'package:krishicare/pages/verify.dart';
+import 'package:krishicare/pages/phone.dart';
 
 //home pages
-import 'package:krishicare/features/nav_pages/home.dart';
+
+import 'features/auth/nav_pages/Home.dart';
+//import 'package:krishicare/nav_pages/myaccount.dart';
+//import 'package:krishicare/nav_pages/Nav_bar.dart';
+//import 'package:krishicare/nav_pages/news.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  print("stage1");
   await Firebase.initializeApp();
-  runApp(MaterialApp(
+  print("stage2");
+  runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: 'home',
+    //translations: LocaleString(),
+    locale: Locale('en', 'US'),
+    initialRoute: 'form',
     routes: {
-      'phone': (context) => const Myphone(),
-      'otp': (context) => const MyVerify(),
-      'home': (context) => const Myhome()
+      'phone': (context) => Myphone(),
+      'otp': (context) => MyVerify(),
+      'Home': (context) => Myhome(),
+      'Onboard': (context) => OnBoardingPage(),
+      'form': (context) => FormScreen()
     },
   ));
-  //I love you baby and i just want you from andriyas saini
 }
