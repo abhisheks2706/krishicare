@@ -385,14 +385,14 @@ class FormScreenState extends State<FormScreen> {
                         ),
                       ),
                       onConfirm: (results) {
-                        MachineData = [];
+                        FarmData = [];
                         for (var i = 0; i < results.length; i++) {
                           SubjectModel data = results[i] as SubjectModel;
                           print(data.subjectId);
                           print(data.subjectName);
-                          MachineData.add(data.subjectName);
+                          FarmData.add(data.subjectName);
                         }
-                        print("data $MachineData");
+                        print("data $FarmData");
 
                         //_selectedAnimals = results;
                       },
@@ -569,6 +569,15 @@ widget buildUser(User user)=> LisTile(
   title :Text(user.name),
   suntitle: Texf(user.birthday.toIso8601String()),)
 )
+
+one user
+
+body:FutureBuilder<User?>(
+  future: readUser(),
+  builder: (context,snapshot){},
+)
+
+Future<User?> readUser
 
 
 */

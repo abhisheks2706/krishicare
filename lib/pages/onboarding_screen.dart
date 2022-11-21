@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-import '../features/auth/nav_pages/Home.dart';
+//import '../features/auth/nav_pages/Home.dart';
 import '/widgets/button_widget.dart';
 
 class OnBoardingPage extends StatelessWidget {
