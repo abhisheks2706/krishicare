@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:krishicare/features/nav_pages/Nav_bar.dart';
+import 'package:krishicare/views/current_weather.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({Key? key}) : super(key: key);
@@ -18,6 +19,13 @@ class _MyhomeState extends State<Myhome> {
           backgroundColor: Colors.green.shade900,
           title: const Text("Krishi Care"),
           elevation: 0),
+
+      //weather body
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center, 
+        children: [
+        currentweather(const Icon(Icons.wb_sunny_rounded), "46.3", "Bhopal")
+      ]),
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white10,
