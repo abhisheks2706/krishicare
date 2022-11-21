@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:krishicare/constants/global_variable.dart';
 import 'package:krishicare/datas/controller/app_data_controller2.dart';
 import 'package:krishicare/datas/controller/app_data_controller3.dart';
 import 'package:krishicare/datas/controller/app_data_controller4.dart';
@@ -157,7 +158,9 @@ class FormScreenState extends State<FormScreen> {
     });
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Form Demo")),
+      appBar: AppBar(
+        title: const Text("Kissan Deatils"),
+      ),
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.all(24),

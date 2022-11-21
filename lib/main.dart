@@ -7,12 +7,12 @@ import 'package:krishicare/pages/form_screen.dart';
 import 'package:krishicare/pages/onboarding_screen.dart';
 
 //verification pages
-import 'package:krishicare/pages/verify.dart';
-import 'package:krishicare/pages/phone.dart';
+import 'package:krishicare/features/auth/verify.dart';
+import 'package:krishicare/features/auth/phone.dart';
 
 //home pages
 
-import 'features/auth/nav_pages/Home.dart';
+import 'features/nav_pages/home.dart';
 //import 'package:krishicare/nav_pages/myaccount.dart';
 //import 'package:krishicare/nav_pages/Nav_bar.dart';
 //import 'package:krishicare/nav_pages/news.dart';
@@ -26,7 +26,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     //translations: LocaleString(),
     locale: Locale('en', 'US'),
-    initialRoute: 'form',
+    initialRoute: 'Home',
     routes: {
       'phone': (context) => Myphone(),
       'otp': (context) => MyVerify(),

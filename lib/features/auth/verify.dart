@@ -1,7 +1,7 @@
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:krishicare/pages/phone.dart';
+import 'package:krishicare/features/auth/phone.dart';
 // import 'package:krishicare/phone.dart';
 import 'package:pinput/pinput.dart';
 
