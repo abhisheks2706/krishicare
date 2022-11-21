@@ -1,8 +1,8 @@
-//import 'dart:html';
-
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:krishicare/features/auth/phone.dart';
+import 'package:krishicare/pages/phone.dart';
+// import 'package:krishicare/phone.dart';
 import 'package:pinput/pinput.dart';
 
 class MyVerify extends StatefulWidget {
@@ -93,10 +93,9 @@ class _MyVerifyState extends State<MyVerify> {
                 onChanged: (value) {
                   code = value;
                 },
-                // defaultPinTheme: defaultPinTheme,
-                // focusedPinTheme: focusedPinTheme,
-                // submittedPinTheme: submittedPinTheme,
-
+                defaultPinTheme: defaultPinTheme,
+                focusedPinTheme: focusedPinTheme,
+                submittedPinTheme: submittedPinTheme,
                 showCursor: true,
                 onCompleted: (pin) => print(pin),
               ),
@@ -108,6 +107,8 @@ class _MyVerifyState extends State<MyVerify> {
                 height: 45,
                 child: ElevatedButton(
                     onPressed: () async {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, "Onboard", (route) => true);
                       try {
                         // Create a PhoneAuthCredential with the code
                         PhoneAuthCredential credential =
@@ -117,16 +118,20 @@ class _MyVerifyState extends State<MyVerify> {
                         // Sign the user in (or link) with the credential
                         await auth.signInWithCredential(credential);
                         Navigator.pushNamedAndRemoveUntil(
-                            context, "home", (route) => true);
+                            context, "Home", (route) => true);
                       } catch (e) {
-                        const Text("wrong otp");
+                        print(e.toString() +
+                            " " +
+                            code +
+                            "wrong otp" +
+                            Myphone.verify);
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.green.shade600,
+                        backgroundColor: Colors.green.shade600,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    child: Text("Verify Phone Number")),
+                    child: const Text("Verify Phone Number")),
               ),
               Row(
                 children: [
@@ -138,7 +143,7 @@ class _MyVerifyState extends State<MyVerify> {
                           (route) => false,
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "Edit Phone Number ?",
                         style: TextStyle(color: Colors.black),
                       ))
