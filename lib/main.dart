@@ -26,7 +26,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     //translations: LocaleString(),
     locale: Locale('en', 'US'),
-    initialRoute: 'Home',
+    initialRoute: 'phone',
     routes: {
       'phone': (context) => Myphone(),
       'otp': (context) => MyVerify(),

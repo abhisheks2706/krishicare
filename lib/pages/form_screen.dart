@@ -6,12 +6,19 @@ import 'package:krishicare/constants/global_variable.dart';
 import 'package:krishicare/datas/controller/app_data_controller2.dart';
 import 'package:krishicare/datas/controller/app_data_controller3.dart';
 import 'package:krishicare/datas/controller/app_data_controller4.dart';
+import 'package:krishicare/pages/onboarding_screen.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 import '../datas/controller/app_data_controller1.dart';
 import '../datas/model/subject_data_model.dart';
 
 class FormScreen extends StatefulWidget {
+  var phoneNumber = 123;
+
+  FormScreen({
+    Key? key,
+  }) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return FormScreenState();
@@ -156,6 +163,8 @@ class FormScreenState extends State<FormScreen> {
       controller3.getSubjectData();
       controller4.getSubjectData();
     });
+
+    bool isLoading = false;
 
     return Scaffold(
       appBar: AppBar(
@@ -456,11 +465,17 @@ class FormScreenState extends State<FormScreen> {
                 Column(
                   children: [
                     ElevatedButton(
-                      child: const Text(
-                        'Submit',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                      onPressed: () {
+                      child: isLoading
+                          ? const CircularProgressIndicator(
+                              color: Colors.white,
+                            )
+                          : const Text(
+                              'Submit',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                      onPressed: () async {
+                        if (isLoading) return;
                         if (!_formKey.currentState!.validate()) {
                           return;
                         }
@@ -480,7 +495,7 @@ class FormScreenState extends State<FormScreen> {
                         //  'CattlesData': CattlesData
                         //});
 
-                        createUser(
+                        await createUser(
                             name: name,
                             email: email,
                             whatapp: whatapp,
@@ -498,6 +513,11 @@ class FormScreenState extends State<FormScreen> {
                         print(whatapp);
                         print(address);
                         print(pincode);
+
+                        goToBoardingScreen;
+                        setState(() {
+                          isLoading = true;
+                        });
 
                         //Send to API
                       },
@@ -525,9 +545,13 @@ class FormScreenState extends State<FormScreen> {
       required List CropsData,
       required List FarmData,
       required List CattlesData}) async {
-    final docUser = FirebaseFirestore.instance.collection('users').doc();
+    final docUser = FirebaseFirestore.instance
+        .collection('users')
+        .doc('widget.phoneNumber');
     print("data sending");
     final json = {
+      'phone': docUser.id,
+      'time': Timestamp.now(),
       'name': name,
       'email': email,
       'whatapp': whatapp,
@@ -543,7 +567,14 @@ class FormScreenState extends State<FormScreen> {
     await docUser.set(json);
     print("data sent");
   }
+
+  void goToBoardingScreen(context) => Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => OnBoardingPage()),
+      );
 }
+
+
+
 /*
 Stream<List<User>> readUsers() => FirebaseFirestore.instance.collection('users').snapshots().map((snapshot)=>snapshot.docs.map((doc)=>User.fromJson(doc.data())).toList());
 
@@ -580,7 +611,36 @@ body:FutureBuilder<User?>(
   builder: (context,snapshot){},
 )
 
-Future<User?> readUser
+Future<User?> readUser({required String name })async{
+  final docUser= FirebaseFirestore.instance.collection("users").doc();
+  final snapshot = await docUser.get();
+
+  if(snapshot.exists){
+    return User.fromJson(snapshot.data()!);
+  
+}
+
+update data
+docUser.update({
+  'name':'Emma',
+  for list type
+  'city.name':'Surat'
+}
+)
+
+delete data
+docUser.update({
+  'name':'Emma',
+  for list type
+  'city.name':FieldValue.delete(),
+}
+)
+
+delete document 
+docUser.delete();
+ 
+
+ 
 
 
 */

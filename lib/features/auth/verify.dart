@@ -1,9 +1,11 @@
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:krishicare/features/auth/phone.dart';
+//import 'package:krishicare/pages/phone.dart';
 // import 'package:krishicare/phone.dart';
 import 'package:pinput/pinput.dart';
+
+import 'phone.dart';
 
 class MyVerify extends StatefulWidget {
   const MyVerify({Key? key}) : super(key: key);
@@ -107,8 +109,8 @@ class _MyVerifyState extends State<MyVerify> {
                 height: 45,
                 child: ElevatedButton(
                     onPressed: () async {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, "Onboard", (route) => true);
+                      //Navigator.pushNamedAndRemoveUntil(
+                      //    context, "Onboard", (route) => true);
                       try {
                         // Create a PhoneAuthCredential with the code
                         PhoneAuthCredential credential =
