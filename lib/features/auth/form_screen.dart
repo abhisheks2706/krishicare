@@ -8,8 +8,8 @@ import 'package:krishicare/datas/controller/app_data_controller3.dart';
 import 'package:krishicare/datas/controller/app_data_controller4.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
-import '../datas/controller/app_data_controller1.dart';
-import '../datas/model/subject_data_model.dart';
+import '../../datas/controller/app_data_controller1.dart';
+import '../../datas/model/subject_data_model.dart';
 
 class FormScreen extends StatefulWidget {
   @override
@@ -159,6 +159,7 @@ class FormScreenState extends State<FormScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: GlobalVariables.secondaryColor,
         title: const Text("Kissan Deatils"),
       ),
       body: SingleChildScrollView(

@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:krishicare/pages/LacaleString.dart';
-import 'package:krishicare/pages/form_screen.dart';
+import 'package:krishicare/features/auth/form_screen.dart';
 import 'package:krishicare/pages/onboarding_screen.dart';
 
 //verification pages
@@ -26,7 +26,7 @@ void main() async {
     debugShowCheckedModeBanner: false,
     //translations: LocaleString(),
     locale: Locale('en', 'US'),
-    initialRoute: 'Home',
+    initialRoute: 'form',
     routes: {
       'phone': (context) => Myphone(),
       'otp': (context) => MyVerify(),
