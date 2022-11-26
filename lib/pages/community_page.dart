@@ -1,9 +1,5 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-// import 'package:flutter_icons/flutter_icons.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:krishicare/pages/messages.dart';
 import '/datas/post_json.dart';
 import '/datas/user_json.dart';
 import '/theme/colors.dart';
@@ -20,35 +16,13 @@ class _CommunityPage extends State<CommunityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(60), child: getAppBar()),
       body: getBody(),
-    );
-  }
-
-  Widget getAppBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: white,
-      title: Padding(
-        padding: const EdgeInsets.only(left: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Krishi Care Community Handle ",
-              style: TextStyle(
-                  fontSize: 18, color: black, fontWeight: FontWeight.bold),
-            ),
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.audio_file,
-                  color: black,
-                  size: 25,
-                ))
-          ],
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          const ChatPage();
+        },
+        backgroundColor: Colors.white70,
+        child: const Icon(Icons.message_rounded),
       ),
     );
   }
@@ -198,11 +172,7 @@ class _CommunityPage extends State<CommunityPage> {
                                       )
                                     ],
                                   ),
-                                  const Icon(Icons.add_home_sharp
-                                      // Entypo.dots_three_vertical,
-                                      //color: white,
-                                      // size: 20,
-                                      )
+                                  const Icon(Icons.add_home_sharp)
                                 ],
                               ),
                               Row(
@@ -220,11 +190,7 @@ class _CommunityPage extends State<CommunityPage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        const Icon(Icons.add_home
-                                            //Feather.heart,
-                                            //color: white,
-                                            //size: 14,
-                                            ),
+                                        const Icon(Icons.add_home),
                                         Text(
                                           postsList[index]['like'],
                                           style: const TextStyle(

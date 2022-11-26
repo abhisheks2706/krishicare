@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:krishicare/features/nav_pages/Nav_bar.dart';
+import 'package:krishicare/pages/community_page.dart';
+
+import '../../pages/home_page.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({Key? key}) : super(key: key);
@@ -34,7 +37,7 @@ class _MyhomeState extends State<Myhome> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.agriculture),
+            icon: Icon(Icons.message),
             label: "Search",
           ),
           BottomNavigationBarItem(
@@ -52,8 +55,21 @@ class _MyhomeState extends State<Myhome> {
           });
         },
       ),
+      body: getBody(),
 
       //nav bar
+    );
+  }
+
+  Widget getBody() {
+    return IndexedStack(
+      index: _currentindex,
+      children: [
+        HomePage(),
+        CommunityPage()
+        // StorePage(),
+        //FavouritePage()
+      ],
     );
   }
 }
