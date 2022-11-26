@@ -1,7 +1,11 @@
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:krishicare/features/auth/verify.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/phone_provider.dart';
 
 class Myphone extends StatefulWidget {
   const Myphone({Key? key}) : super(key: key);
@@ -15,6 +19,8 @@ class Myphone extends StatefulWidget {
 class _MyphoneState extends State<Myphone> {
   TextEditingController countrycode = TextEditingController();
   var phone = "";
+  var locale = const Locale('hi', 'IN');
+  var phoneno;
 
   @override
   void initState() {
@@ -41,16 +47,16 @@ class _MyphoneState extends State<Myphone> {
                   const SizedBox(
                     height: 25,
                   ),
-                  const Text(
-                    'Phone verification ',
+                  Text(
+                    'Phone verification '.tr,
                     style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'We need to register your phone before getting started',
-                    style: TextStyle(
+                  Text(
+                    'We need to register your phone before getting started'.tr,
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.center,
@@ -106,29 +112,48 @@ class _MyphoneState extends State<Myphone> {
                   const SizedBox(
                     height: 20,
                   ),
-                  SizedBox(
-                    height: 45,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        await FirebaseAuth.instance.verifyPhoneNumber(
-                          phoneNumber: '+${countrycode.text + phone}',
-                          verificationCompleted:
-                              (PhoneAuthCredential credential) {},
-                          verificationFailed: (FirebaseAuthException e) {},
-                          codeSent: (String verificationId, int? resendToken) {
-                            Myphone.verify = verificationId;
-                            Navigator.pushNamed(context, "otp");
-                          },
-                          codeAutoRetrievalTimeout: (String verificationId) {},
+                  ChangeNotifierProvider<PhoneProvider>(
+                    create: (context) => PhoneProvider(),
+                    child: Consumer<PhoneProvider>(
+                      builder: (context, provider, child) {
+                        return SizedBox(
+                          // '+${countrycode.text + phone}',
+
+                          height: 45,
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              await FirebaseAuth.instance.verifyPhoneNumber(
+                                phoneNumber: '+${countrycode.text + phone}',
+                                // provider.setphone_number(phone),
+
+                                verificationCompleted:
+                                    (PhoneAuthCredential credential) {},
+                                verificationFailed:
+                                    (FirebaseAuthException e) {},
+                                codeSent:
+                                    (String verificationId, int? resendToken) {
+                                  Myphone.verify = verificationId;
+                                  //Navigator.pushNamed(context, "otp");
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          MyVerify(phone1: phone)));
+                                },
+                                codeAutoRetrievalTimeout:
+                                    (String verificationId) {},
+                              );
+                              //Navigator.pushNamed(context, "otp");
+                              //provider.setphone_number(phone);
+                              //notifyListeners();
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.green.shade600,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10))),
+                            child: Text('Send the code'.tr),
+                          ),
                         );
-                        //Navigator.pushNamed(context, "otp");
                       },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                      child: const Text('Send the code'),
                     ),
                   )
                 ],

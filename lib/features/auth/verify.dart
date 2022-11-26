@@ -1,6 +1,8 @@
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:krishicare/features/auth/form_screen.dart';
 //import 'package:krishicare/pages/phone.dart';
 // import 'package:krishicare/phone.dart';
 import 'package:pinput/pinput.dart';
@@ -8,7 +10,11 @@ import 'package:pinput/pinput.dart';
 import 'phone.dart';
 
 class MyVerify extends StatefulWidget {
-  const MyVerify({Key? key}) : super(key: key);
+  final phone1;
+  MyVerify({
+    Key? key,
+    required this.phone1,
+  }) : super(key: key);
 
   @override
   State<MyVerify> createState() => _MyVerifyState();
@@ -16,6 +22,7 @@ class MyVerify extends StatefulWidget {
 
 class _MyVerifyState extends State<MyVerify> {
   final FirebaseAuth auth = FirebaseAuth.instance;
+  //var Phone = phone1;
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -73,15 +80,15 @@ class _MyVerifyState extends State<MyVerify> {
               const SizedBox(
                 height: 25,
               ),
-              const Text(
-                "Phone Verification",
+              Text(
+                "Phone Verification".tr,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                "We need to register your phone without getting started!",
+              Text(
+                "We need to register your phone without getting started!".tr,
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -109,8 +116,9 @@ class _MyVerifyState extends State<MyVerify> {
                 height: 45,
                 child: ElevatedButton(
                     onPressed: () async {
-                      //Navigator.pushNamedAndRemoveUntil(
-                      //    context, "Onboard", (route) => true);
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              MyVerify(phone1: widget.phone1)));
                       try {
                         // Create a PhoneAuthCredential with the code
                         PhoneAuthCredential credential =
@@ -119,8 +127,9 @@ class _MyVerifyState extends State<MyVerify> {
 
                         // Sign the user in (or link) with the credential
                         await auth.signInWithCredential(credential);
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, "Home", (route) => true);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                FormScreen(phone: widget.phone1)));
                       } catch (e) {
                         print(e.toString() +
                             " " +
@@ -133,7 +142,7 @@ class _MyVerifyState extends State<MyVerify> {
                         backgroundColor: Colors.green.shade600,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    child: const Text("Verify Phone Number")),
+                    child: Text("Verify Phone Number".tr)),
               ),
               Row(
                 children: [
@@ -145,8 +154,8 @@ class _MyVerifyState extends State<MyVerify> {
                           (route) => false,
                         );
                       },
-                      child: const Text(
-                        "Edit Phone Number ?",
+                      child: Text(
+                        "Edit Phone Number ?".tr,
                         style: TextStyle(color: Colors.black),
                       ))
                 ],

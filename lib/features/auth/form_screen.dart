@@ -7,16 +7,21 @@ import 'package:krishicare/datas/controller/app_data_controller2.dart';
 import 'package:krishicare/datas/controller/app_data_controller3.dart';
 import 'package:krishicare/datas/controller/app_data_controller4.dart';
 import 'package:krishicare/pages/onboarding_screen.dart';
+import 'package:krishicare/provider/phone_provider.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:provider/provider.dart';
 
-import '../datas/controller/app_data_controller1.dart';
-import '../datas/model/subject_data_model.dart';
+import '../../datas/User.dart';
+import '../../datas/controller/app_data_controller1.dart';
+import '../../datas/model/subject_data_model.dart';
 
 class FormScreen extends StatefulWidget {
   var phoneNumber = 123;
+  final phone;
 
   FormScreen({
     Key? key,
+    required this.phone,
   }) : super(key: key);
 
   @override
@@ -168,6 +173,7 @@ class FormScreenState extends State<FormScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: GlobalVariables.secondaryColor,
         title: const Text("Kissan Deatils"),
       ),
       body: SingleChildScrollView(
@@ -464,64 +470,52 @@ class FormScreenState extends State<FormScreen> {
                 const SizedBox(height: 100),
                 Column(
                   children: [
-                    ElevatedButton(
-                      child: isLoading
-                          ? const CircularProgressIndicator(
-                              color: Colors.white,
-                            )
-                          : const Text(
-                              'Submit',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                      onPressed: () async {
-                        if (isLoading) return;
-                        if (!_formKey.currentState!.validate()) {
-                          return;
-                        }
+                    ChangeNotifierProvider<PhoneProvider>(
+                        create: (context) => PhoneProvider(),
+                        child: Consumer<PhoneProvider>(
+                          builder: (context, provider, child) {
+                            return ElevatedButton(
+                              child: Text(
+                                'Submit'.tr,
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              onPressed: () async {
+                                if (!_formKey.currentState!.validate()) {
+                                  return;
+                                }
+                                ;
 
-                        _formKey.currentState!.save();
-                        //FirebaseFirestore.instance.collection('users').add({
-                        //  'name': name,
-                        //  'email': email,
-                        //  'whatapp': whatapp,
-                        //  'address': address,
-                        //  'pincode': pincode,
-                        //  'city': city,
-                        //  'state': state,
-                        //  'MachineData': MachineData,
-                        //  'CropsData': CropsData,
-                        //  'FarmData': FarmData,
-                        //  'CattlesData': CattlesData
-                        //});
+                                //Stream<List<User>> readUsers() => FirebaseFirestore.instance.collection('users').snapshots().map((snapshot)=>snapshot.docs.map((doc)=>User.fromJson(doc.data())).toList());
 
-                        await createUser(
-                            name: name,
-                            email: email,
-                            whatapp: whatapp,
-                            address: address,
-                            pincode: pincode,
-                            city: city,
-                            state: state,
-                            MachineData: MachineData,
-                            CropsData: CropsData,
-                            FarmData: FarmData,
-                            CattlesData: CattlesData);
+                                _formKey.currentState!.save();
 
-                        print(name);
-                        print(email);
-                        print(whatapp);
-                        print(address);
-                        print(pincode);
+                                await createUser(
+                                    name: name,
+                                    id: widget.phone,
+                                    email: email,
+                                    whatapp: whatapp,
+                                    address: address,
+                                    pincode: pincode,
+                                    city: city,
+                                    state: state,
+                                    MachineData: MachineData,
+                                    CropsData: CropsData,
+                                    FarmData: FarmData,
+                                    CattlesData: CattlesData);
+                                print(readUser());
 
-                        goToBoardingScreen;
-                        setState(() {
-                          isLoading = true;
-                        });
+                                print(name);
+                                print(email);
+                                print(whatapp);
+                                print(address);
+                                print(pincode);
 
-                        //Send to API
-                      },
-                    ),
+                                //Send to API
+                              },
+                            );
+                          },
+                        )),
                     //SizedBox(height: 100);
                   ],
                 )
@@ -533,24 +527,24 @@ class FormScreenState extends State<FormScreen> {
     );
   }
 
-  Future createUser(
-      {required String name,
-      required String email,
-      required String whatapp,
-      required String address,
-      required String pincode,
-      required String city,
-      required String state,
-      required List MachineData,
-      required List CropsData,
-      required List FarmData,
-      required List CattlesData}) async {
-    final docUser = FirebaseFirestore.instance
-        .collection('users')
-        .doc('widget.phoneNumber');
+  Future createUser({
+    required id,
+    required String name,
+    required String email,
+    required String whatapp,
+    required String address,
+    required String pincode,
+    required String city,
+    required String state,
+    required List MachineData,
+    required List CropsData,
+    required List FarmData,
+    required List CattlesData,
+  }) async {
+    final docUser = FirebaseFirestore.instance.collection('users').doc(id);
     print("data sending");
     final json = {
-      'phone': docUser.id,
+      'phone': id,
       'time': Timestamp.now(),
       'name': name,
       'email': email,
@@ -566,12 +560,26 @@ class FormScreenState extends State<FormScreen> {
     };
     await docUser.set(json);
     print("data sent");
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (_) => OnBoardingPage()));
   }
 
-  void goToBoardingScreen(context) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => OnBoardingPage()),
-      );
+  Future<User?> readUser() async {
+    final docUser = FirebaseFirestore.instance
+        .collection("users")
+        .doc((widget.phone).toString());
+    final snapshot = await docUser.get();
+
+    if (snapshot.exists) {
+      return User.fromJson(snapshot.data()!);
+      final user = snapshot.data();
+
+      //print(User.id);
+    }
+  }
 }
+
+
 
 
 
@@ -612,7 +620,7 @@ body:FutureBuilder<User?>(
 )
 
 Future<User?> readUser({required String name })async{
-  final docUser= FirebaseFirestore.instance.collection("users").doc();
+  final docUser= FirebaseFirestore.instance.collection("users").doc('id');
   final snapshot = await docUser.get();
 
   if(snapshot.exists){

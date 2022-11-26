@@ -12,35 +12,37 @@ class OnBoardingPage extends StatelessWidget {
         child: IntroductionScreen(
           pages: [
             PageViewModel(
-              title: 'A reader lives a thousand lives',
-              body: 'The man who never reads lives only one.',
-              image: buildImage('/ebook.png'),
+              title: 'Rent and Earn',
+              body:
+                  'Rent your assets to earn or use available rental services.',
+              image: buildImage('/rental.jpg'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Featured Books',
-              body: 'Available right at your fingerprints',
-              image: buildImage('/readingbook.png'),
+              title: 'Join our Community',
+              body:
+                  'Join our community of farmers and connect with farmers near you',
+              image: buildImage('/community.jpg'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Simple UI',
-              body: 'For enhanced reading experience',
-              image: buildImage('/manthumbs.png'),
+              title: 'Krishi Store',
+              body: 'Explore the Krishi items available on online store ',
+              image: buildImage('/e_commerce.jpg'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
-              title: 'Today a reader, tomorrow a leader',
-              body: 'Start your journey',
+              title: 'Get weather updates',
+              body: 'Get weather updates for your farm ',
               footer: ButtonWidget(
-                text: 'Start Reading',
+                text: 'Explore',
                 onClicked: () => goToHome(context),
               ),
-              image: buildImage('/learn.png'),
+              image: buildImage('/weather.jpg'),
               decoration: getPageDecoration(),
             ),
           ],
-          done: const Text('Read',
+          done: const Text('Be KrishiCarers',
               style:
                   TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)),
           onDone: () => goToHome(context),
@@ -72,7 +74,7 @@ class OnBoardingPage extends StatelessWidget {
       );
 
   Widget buildImage(String path) =>
-      Center(child: Image.asset(path, width: 350));
+      Center(child: Image.asset(path, width: 350, height: 250));
 
   DotsDecorator getDotDecoration() => DotsDecorator(
         color: const Color(0xFFBDBDBD),
