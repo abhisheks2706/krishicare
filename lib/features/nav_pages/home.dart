@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:krishicare/features/nav_pages/Nav_bar.dart';
 import 'package:krishicare/pages/community_page.dart';
+import 'package:provider/provider.dart';
 
 import '../../pages/home_page.dart';
+import '../../pages/screens/products_overview_screen.dart';
+import '../../provider/cart.dart';
+import '../../provider/orders.dart';
+import '../../provider/products.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({Key? key}) : super(key: key);
@@ -65,8 +70,9 @@ class _MyhomeState extends State<Myhome> {
     return IndexedStack(
       index: _currentindex,
       children: [
-        HomePage(),
-        CommunityPage()
+        const HomePage(),
+        const CommunityPage(),
+        ProductsOverviewScreen(),
         // StorePage(),
         //FavouritePage()
       ],

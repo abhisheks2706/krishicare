@@ -129,7 +129,7 @@ class _MyVerifyState extends State<MyVerify> {
                         await auth.signInWithCredential(credential);
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) =>
-                                FormScreen(phone: widget.phone1)));
+                                MainFormScreen(phone: widget.phone1)));
                       } catch (e) {
                         print(e.toString() +
                             " " +

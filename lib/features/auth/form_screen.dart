@@ -15,22 +15,22 @@ import '../../datas/User.dart';
 import '../../datas/controller/app_data_controller1.dart';
 import '../../datas/model/subject_data_model.dart';
 
-class FormScreen extends StatefulWidget {
+class MainFormScreen extends StatefulWidget {
   var phoneNumber = 123;
   final phone;
 
-  FormScreen({
+  MainFormScreen({
     Key? key,
     required this.phone,
   }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return FormScreenState();
+    return MainFormScreenState();
   }
 }
 
-class FormScreenState extends State<FormScreen> {
+class MainFormScreenState extends State<MainFormScreen> {
   late String name;
   late String email;
   late String address;
