@@ -7,7 +7,6 @@ import '../constants/global_variable.dart';
 class LanguagePage extends StatelessWidget {
   final List locale = [
     {'name': 'ENGLISH', 'locale': Locale('en', 'US')},
-    {'name': 'ಕನ್ನಡ', 'locale': Locale('kn', 'IN')},
     {'name': 'हिंदी', 'locale': Locale('hi', 'IN')},
   ];
 

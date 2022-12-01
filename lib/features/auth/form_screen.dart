@@ -209,7 +209,7 @@ class MainFormScreenState extends State<MainFormScreen> {
                           const DropdownMenuItem(
                               value: "",
                               child: Text(
-                                "Select State",
+                                "Select Your State",
                               )),
                           ...dropDownListStateData
                               .map<DropdownMenuItem<String>>((data) {
@@ -247,7 +247,7 @@ class MainFormScreenState extends State<MainFormScreen> {
                           const DropdownMenuItem(
                             value: "",
                             child: Text(
-                              "Select Course",
+                              "Select Your City",
                             ),
                           ),
                           ...dropDownListCityData
@@ -279,7 +279,7 @@ class MainFormScreenState extends State<MainFormScreen> {
                       //height: 200,
                       items: controller1.dropDownData,
                       title: const Text(
-                        "Select your crops",
+                        "Select Your Crops",
                         style: TextStyle(color: Colors.black),
                       ),
                       selectedColor: Colors.black,
@@ -330,7 +330,7 @@ class MainFormScreenState extends State<MainFormScreen> {
                       //height: 200,
                       items: controller2.dropDownData,
                       title: const Text(
-                        "Select Your Crops",
+                        "Select Your Machines",
                         style: TextStyle(color: Colors.black),
                       ),
                       selectedColor: Colors.black,
@@ -378,7 +378,7 @@ class MainFormScreenState extends State<MainFormScreen> {
                       //height: 200,
                       items: controller3.dropDownData,
                       title: const Text(
-                        "Select Subject",
+                        "Select Your Farm Area",
                         style: TextStyle(color: Colors.black),
                       ),
                       selectedColor: Colors.black,
@@ -426,7 +426,7 @@ class MainFormScreenState extends State<MainFormScreen> {
                       //height: 200,
                       items: controller4.dropDownData,
                       title: const Text(
-                        "Select Subject",
+                        "Select Your Cattles",
                         style: TextStyle(color: Colors.black),
                       ),
                       selectedColor: Colors.black,

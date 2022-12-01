@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../features/nav_pages/Nav_bar.dart';
 import '../../provider/cart.dart';
 import '../../widgets/shop_widgets.dart/app_drawer.dart';
 import '../../widgets/shop_widgets.dart/badge.dart';
@@ -23,7 +24,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // drawer: const NavBar(),
       appBar: AppBar(
+        backgroundColor: Colors.green.shade900,
         title: const Text('MyShop'),
         actions: <Widget>[
           PopupMenuButton(

@@ -1,11 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:krishicare/features/nav_pages/elements/Splash_screnn.dart';
 import 'package:krishicare/pages/LanguagePage.dart';
 import 'package:krishicare/pages/LacaleString.dart';
+import 'package:krishicare/pages/messages.dart';
+import 'package:krishicare/pages/news/news.dart';
 import 'package:krishicare/pages/onboarding_screen.dart';
 
 //verification pages
 import 'package:krishicare/features/auth/phone.dart';
+import 'package:krishicare/pages/porfile.dart';
+import 'package:krishicare/pages/settings.dart';
 import 'package:provider/provider.dart';
 
 //home pages
@@ -21,15 +27,17 @@ import 'provider/orders.dart';
 import 'provider/products.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-  print("stage1");
-  //await Firebase.initializeApp();
-  print("stage2");
+  WidgetsFlutterBinding.ensureInitialized();
+  print("Establishing connection ");
+  await Firebase.initializeApp();
+  print("app is live");
 
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -49,8 +57,10 @@ class MyApp extends StatelessWidget {
           translations: LocaleString(),
           locale: Locale('hi', 'IN'),
           //var locale = Locale('hi', 'IN');
-          initialRoute: 'Home',
+          initialRoute: 'Splash',
           routes: {
+            'Chat': (context) => ChatPage(),
+            'Splash': (context) => MyHomeePage(),
             'phone': (context) => Myphone(),
             //'otp': (context) => MyVerify(),
             'Home': (context) => Myhome(),
@@ -61,8 +71,11 @@ class MyApp extends StatelessWidget {
             ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
             CartScreen.routeName: (context) => CartScreen(),
             OrdersScreen.routeName: (context) => OrdersScreen(),
+            SettingsUI.routeName: (context) => SettingsUI(),
             UserProductsScreen.routeName: (context) => UserProductsScreen(),
             EditProductScreen.routeName: (context) => EditProductScreen(),
+            SettingsPage.routeName: (context) => SettingsPage(),
+            NewsPage.routeName: (context) => NewsPage(),
           },
         ));
   }

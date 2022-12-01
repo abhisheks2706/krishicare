@@ -14,6 +14,7 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Cart'),
+        backgroundColor: Colors.green.shade900,
       ),
       body: Column(
         children: <Widget>[
@@ -58,7 +59,7 @@ class CartScreen extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemCount: cart.items.length,
-              itemBuilder: (ctx, i) => CartItem(
+              itemBuilder: (context, i) => CartItem(
                 cart.items.values.toList()[i].id,
                 cart.items.keys.toList()[i],
                 cart.items.values.toList()[i].price,

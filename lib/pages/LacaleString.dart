@@ -41,17 +41,17 @@ class LocaleString extends Translations {
 
           // phone verifiaction screen
 
-          'Phone verification': 'भाषा',
+          'Phone verification': 'फोन सत्यापन करें ',
           'We need to register your phone before getting started':
-              'We need to register your phone before getting started',
-          'Phone number': 'Phone number',
+              'आरंभ करने से पहले हमें आपका फ़ोन पंजीकृत करना होगा',
+          'Phone number': 'फ़ोन नंबर',
 
           // verify screen
 
-          'We need to register your phone without getting started!':
-              'We need to register your phone without getting started!',
-          "Verify Phone Number": "Verify Phone Number",
-          "Edit Phone Number ?": "Edit Phone Number ?",
+          'We need to register your phone before getting started!':
+              'आरंभ करने से पहले हमें आपका फ़ोन पंजीकृत करना होगा!',
+          "Verify Phone Number": "फ़ोन नंबर सत्यापित करें",
+          "Edit Phone Number ?": "फ़ोन नंबर संपादित करें ?",
 
           // change language
 

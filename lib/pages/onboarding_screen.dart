@@ -15,20 +15,20 @@ class OnBoardingPage extends StatelessWidget {
               title: 'Rent and Earn',
               body:
                   'Rent your assets to earn or use available rental services.',
-              image: buildImage('/rental.jpg'),
+              image: buildImage('assets/rental.jpg'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
               title: 'Join our Community',
               body:
                   'Join our community of farmers and connect with farmers near you',
-              image: buildImage('/community.jpg'),
+              image: buildImage('assets/community.jpg'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
               title: 'Krishi Store',
               body: 'Explore the Krishi items available on online store ',
-              image: buildImage('/e_commerce.jpg'),
+              image: buildImage('assets/e_commerce.jpg'),
               decoration: getPageDecoration(),
             ),
             PageViewModel(
@@ -38,20 +38,20 @@ class OnBoardingPage extends StatelessWidget {
                 text: 'Explore',
                 onClicked: () => goToHome(context),
               ),
-              image: buildImage('/weather.jpg'),
+              image: buildImage('assets/weather.jpg'),
               decoration: getPageDecoration(),
             ),
           ],
           done: const Text('Be KrishiCarers',
               style:
-                  TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)),
+                  TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
           onDone: () => goToHome(context),
-          showSkipButton: true,
-          skip: const Text(
-            'Skip',
-            style: TextStyle(color: Colors.black),
-          ),
-          onSkip: () => goToHome(context),
+          showSkipButton: false,
+          //skip: const Text(
+          //  'Skip',
+          //  style: TextStyle(color: Colors.black),
+          //),
+          //onSkip: () => goToHome(context),
           next: const Icon(
             Icons.arrow_forward,
             color: Colors.green,

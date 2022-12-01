@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:krishicare/pages/messages.dart';
+import '../features/nav_pages/Nav_bar.dart';
 import '/datas/post_json.dart';
 import '/datas/user_json.dart';
 import '/theme/colors.dart';
@@ -16,10 +17,18 @@ class _CommunityPage extends State<CommunityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+      drawer: const NavBar(),
+      appBar: AppBar(
+          backgroundColor: Colors.green.shade900,
+          title: const Text("Krishi Care Community"),
+          elevation: 0),
       body: getBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          const ChatPage();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ChatPage()),
+          );
         },
         backgroundColor: Colors.white70,
         child: const Icon(Icons.message_rounded),

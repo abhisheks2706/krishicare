@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 
+import '../features/nav_pages/Nav_bar.dart';
 import '/datas/category_json.dart';
 import '/datas/courses_json.dart';
 import '/datas/user_profile.dart';
@@ -30,14 +31,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: background,
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(0.0),
-        child: AppBar(
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-        ),
-      ),
+      drawer: const NavBar(),
+      appBar: AppBar(
+          backgroundColor: Colors.green.shade900,
+          title: const Text("Krishi Care"),
+          elevation: 0),
       body: getBody(),
     );
   }

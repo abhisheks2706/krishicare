@@ -1,10 +1,7 @@
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:krishicare/features/auth/form_screen.dart';
-//import 'package:krishicare/pages/phone.dart';
-// import 'package:krishicare/phone.dart';
 import 'package:pinput/pinput.dart';
 
 import 'phone.dart';
@@ -82,14 +79,15 @@ class _MyVerifyState extends State<MyVerify> {
               ),
               Text(
                 "Phone Verification".tr,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
-                "We need to register your phone without getting started!".tr,
-                style: TextStyle(
+                "We need to register your phone before getting started!".tr,
+                style: const TextStyle(
                   fontSize: 16,
                 ),
                 textAlign: TextAlign.center,
@@ -156,7 +154,7 @@ class _MyVerifyState extends State<MyVerify> {
                       },
                       child: Text(
                         "Edit Phone Number ?".tr,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       ))
                 ],
               )

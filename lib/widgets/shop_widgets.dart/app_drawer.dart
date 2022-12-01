@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:krishicare/features/auth/phone.dart';
+import 'package:krishicare/features/nav_pages/home.dart';
+import 'package:krishicare/pages/porfile.dart';
+import 'package:krishicare/pages/settings.dart';
 
+import '../../pages/news/news.dart';
 import '../../pages/screens/orders_screen.dart';
 import '../../pages/screens/products_overview_screen.dart';
 import '../../pages/screens/user_products_screen.dart';
@@ -18,12 +23,17 @@ class AppDrawer extends StatelessWidget {
             accountEmail: const Text('abhiseks2706@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                child: Image.asset(
-                  'assets/farmer.png',
-                  alignment: Alignment.center,
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(SettingsUI.routeName);
+                  },
+                  child: Image.asset(
+                    'assets/farmer.png',
+                    alignment: Alignment.center,
+                    width: 90,
+                    height: 90,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -37,9 +47,21 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.home_sharp),
+            title: const Text('Home'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Myhome()),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.account_box),
             title: const Text('User profile'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(SettingsUI.routeName);
+            },
           ),
           ListTile(
             leading: const Icon(Icons.shopping_cart),
@@ -61,8 +83,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.edit),
             title: Text('Manage Products'),
             onTap: () {
-              Navigator.of(context)
-                  .pushReplacementNamed(UserProductsScreen.routeName);
+              Navigator.of(context).pushNamed(UserProductsScreen.routeName);
             },
           ),
           const Divider(),
@@ -79,7 +100,9 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text('settings'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(SettingsPage.routeName);
+            },
           ),
           ListTile(
             leading: const Icon(Icons.person_add),
@@ -92,11 +115,21 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Help Guide'),
             onTap: () {},
           ),
+          ListTile(
+            leading: const Icon(Icons.warning),
+            title: const Text('news'),
+            onTap: () {
+              Navigator.of(context).pushNamed(NewsPage.routeName);
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.exit_to_app),
             title: const Text('Sign Out'),
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (context) => const Myphone()),
+              (route) => false,
+            ),
           )
         ],
       ),
