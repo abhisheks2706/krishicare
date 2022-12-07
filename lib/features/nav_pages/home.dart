@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:krishicare/features/nav_pages/Nav_bar.dart';
+import 'package:krishicare/features/nav_pages/home_page.dart';
 import 'package:krishicare/pages/community_page.dart';
 import 'package:krishicare/pages/porfile.dart';
 import 'package:provider/provider.dart';
 
-import '../../pages/home_page.dart';
+import '../../pages/home_page1.dart';
 import '../../pages/screens/products_overview_screen.dart';
 import '../../provider/cart.dart';
 import '../../provider/orders.dart';
@@ -33,33 +34,7 @@ class _MyhomeState extends State<Myhome> {
           title: const Text("Krishi Care"),
           elevation: 0),
 
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            currentweather(const Icon(Icons.wb_sunny_rounded), "25", "Bhopal"),
-            const SizedBox(
-              height: 60,
-            ),
-            const Text(
-              "Additional Information",
-              style: TextStyle(
-                  fontSize: 24.0,
-                  color: Color(0xdd212121),
-                  fontWeight: FontWeight.bold),
-            ),
-            const Divider(),
-            const SizedBox(
-              height: 10.0,
-            ),
-            additionalInformation("10km/h", "22", "22", "44"),
-            const Divider(),
-            const Categories(),
-            const carouselImage(),
-            const Crop(),
-          ],
-        ),
-      ),
+      body: getBody(),
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white10,
@@ -104,7 +79,7 @@ class _MyhomeState extends State<Myhome> {
     return IndexedStack(
       index: _currentindex,
       children: [
-        const HomePage(),
+        const MyWidget(),
         const CommunityPage(),
         ProductsOverviewScreen(),
         const SettingsUI(),
