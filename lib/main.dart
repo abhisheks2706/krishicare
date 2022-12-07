@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:krishicare/features/nav_pages/elements/Splash_screnn.dart';
+import 'package:krishicare/features/nav_pages/home_page.dart';
 import 'package:krishicare/pages/LanguagePage.dart';
 import 'package:krishicare/pages/LacaleString.dart';
 import 'package:krishicare/pages/messages.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
           translations: LocaleString(),
           locale: Locale('hi', 'IN'),
           //var locale = Locale('hi', 'IN');
-          initialRoute: 'Splash',
+          initialRoute: 'Home',
           routes: {
             'Chat': (context) => ChatPage(),
             'Splash': (context) => MyHomeePage(),
@@ -76,6 +77,7 @@ class MyApp extends StatelessWidget {
             EditProductScreen.routeName: (context) => EditProductScreen(),
             SettingsPage.routeName: (context) => SettingsPage(),
             NewsPage.routeName: (context) => NewsPage(),
+            MyWidget.routeName: (context) => MyWidget(),
           },
         ));
   }

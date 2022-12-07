@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:krishicare/features/auth/phone.dart';
 import 'package:krishicare/features/nav_pages/home.dart';
 import 'package:krishicare/pages/porfile.dart';
+import 'package:krishicare/pages/screens/cart_screen.dart';
 import 'package:krishicare/pages/settings.dart';
 
 import '../../pages/news/news.dart';
@@ -50,17 +51,22 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.home_sharp),
             title: const Text('Home'),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Myhome()),
-              );
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (_) => const Myhome()));
+
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const Myhome()),
+              // );
             },
           ),
           ListTile(
             leading: const Icon(Icons.account_box),
             title: const Text('User profile'),
             onTap: () {
-              Navigator.of(context).pushNamed(SettingsUI.routeName);
+              //Navigator.of(context).pushNamed(SettingsUI.routeName);
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => const SettingsUI()));
             },
           ),
           ListTile(
@@ -68,7 +74,7 @@ class AppDrawer extends StatelessWidget {
             title: const Text('My orders'),
             onTap: () {
               Navigator.of(context)
-                  .pushReplacementNamed(OrdersScreen.routeName);
+                  .push(MaterialPageRoute(builder: (_) => CartScreen()));
             },
           ),
           ListTile(
@@ -83,7 +89,8 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.edit),
             title: Text('Manage Products'),
             onTap: () {
-              Navigator.of(context).pushNamed(UserProductsScreen.routeName);
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => CartScreen()));
             },
           ),
           const Divider(),
@@ -116,7 +123,7 @@ class AppDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.warning),
+            leading: const Icon(Icons.newspaper_rounded),
             title: const Text('news'),
             onTap: () {
               Navigator.of(context).pushNamed(NewsPage.routeName);

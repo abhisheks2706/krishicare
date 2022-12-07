@@ -17,16 +17,22 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: PreferredSize(
-          child: getAppBar(), preferredSize: const Size.fromHeight(0)),
+      appBar: AppBar(
+        backgroundColor: Colors.green.shade900,
+        title: const Text("Messages"),
+        //elevation: 0,
+        // backgroundColor: white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+      ),
       body: getBody(),
-    );
-  }
-
-  Widget getAppBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: white,
     );
   }
 
@@ -39,13 +45,6 @@ class _ChatPageState extends State<ChatPage> {
           children: [
             const SizedBox(
               height: 20,
-            ),
-            const Text(
-              "Messages",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 30,
             ),
             Container(
               width: double.infinity,
