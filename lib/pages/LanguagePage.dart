@@ -66,6 +66,9 @@ class LanguagePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 20.0,
+                    ),
                     Text(
                       'hello'.tr,
                       style: TextStyle(
@@ -80,7 +83,7 @@ class LanguagePage extends StatelessWidget {
                       style: TextStyle(fontSize: 25),
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 100,
                     ),
                   ],
                 ),
@@ -95,8 +98,12 @@ class LanguagePage extends StatelessWidget {
                         },
                         child: Text(
                           'English',
-                          style: TextStyle(fontSize: 25),
-                        )),
+                          style: const TextStyle(fontSize: 25),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green.shade600,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)))),
                     SizedBox(
                       height: 10,
                     ),
@@ -108,11 +115,18 @@ class LanguagePage extends StatelessWidget {
                         child: Text(
                           'Hindi'.tr,
                           style: TextStyle(fontSize: 25),
-                        )),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green.shade600,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)))),
                     SizedBox(
                       height: 10,
                     ),
                   ],
+                ),
+                const SizedBox(
+                  height: 130.0,
                 ),
                 ElevatedButton(
                     onPressed: () {
@@ -120,9 +134,13 @@ class LanguagePage extends StatelessWidget {
                           .push(MaterialPageRoute(builder: (_) => Myphone()));
                     },
                     child: Text(
-                      'next'.tr,
+                      'Next'.tr,
                       style: TextStyle(fontSize: 25),
-                    )),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green.shade600,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)))),
               ],
             ),
           ),

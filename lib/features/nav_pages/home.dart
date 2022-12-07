@@ -28,10 +28,10 @@ class _MyhomeState extends State<Myhome> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: const NavBar(),
-      //appBar: AppBar(
-      //    backgroundColor: Colors.green.shade900,
-      //    title: const Text("Krishi Care"),
-      //    elevation: 0),
+      appBar: AppBar(
+          backgroundColor: Colors.green.shade900,
+          title: const Text("Krishi Care"),
+          elevation: 0),
 
       body: SingleChildScrollView(
         child: Column(

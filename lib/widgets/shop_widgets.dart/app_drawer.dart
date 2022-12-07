@@ -116,7 +116,7 @@ class AppDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: const Icon(Icons.warning),
+            leading: const Icon(Icons.newspaper),
             title: const Text('news'),
             onTap: () {
               Navigator.of(context).pushNamed(NewsPage.routeName);
