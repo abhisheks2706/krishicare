@@ -10,7 +10,6 @@ import 'package:krishicare/pages/onboarding_screen.dart';
 import 'package:krishicare/provider/phone_provider.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:provider/provider.dart';
-
 import '../../datas/User.dart';
 import '../../datas/controller/app_data_controller1.dart';
 import '../../datas/model/subject_data_model.dart';

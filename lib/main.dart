@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           translations: LocaleString(),
           locale: Locale('hi', 'IN'),
           //var locale = Locale('hi', 'IN');
-          initialRoute: 'Home',
+          initialRoute: 'Splash',
           routes: {
             'Chat': (context) => ChatPage(),
             'Splash': (context) => MyHomeePage(),
