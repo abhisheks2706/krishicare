@@ -1,4 +1,4 @@
-class User {
+class Users {
   final id;
   final String name;
   final String email;
@@ -11,7 +11,7 @@ class User {
   final List CropsData;
   final List FarmData;
   final List CattlesData;
-  User({
+  Users({
     required this.id,
     required this.name,
     required this.email,
@@ -26,7 +26,7 @@ class User {
     required this.CattlesData,
   });
 
-  static User fromJson(Map<String, dynamic> json) => User(
+  static Users fromJson(Map<String, dynamic> json) => Users(
       id: json['id'],
       name: json['name'],
       email: json['email'],

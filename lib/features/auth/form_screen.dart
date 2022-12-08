@@ -563,14 +563,14 @@ class MainFormScreenState extends State<MainFormScreen> {
         .pushReplacement(MaterialPageRoute(builder: (_) => OnBoardingPage()));
   }
 
-  Future<User?> readUser() async {
+  Future<Users?> readUser() async {
     final docUser = FirebaseFirestore.instance
         .collection("users")
         .doc((widget.phone).toString());
     final snapshot = await docUser.get();
 
     if (snapshot.exists) {
-      return User.fromJson(snapshot.data()!);
+      return Users.fromJson(snapshot.data()!);
       final user = snapshot.data();
 
       //print(User.id);
